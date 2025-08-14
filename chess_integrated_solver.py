@@ -20,9 +20,9 @@ class TablebaseGenerator:
         
     def generate_or_load(self):
         """Generate tablebase or load from file if exists."""
-        if os.path.exists('krk_tablebase.pkl'):
+        if os.path.exists('krk_tablebase_fixed.pkl'):
             print("Loading existing tablebase...")
-            with open('krk_tablebase.pkl', 'rb') as f:
+            with open('krk_tablebase_fixed.pkl', 'rb') as f:
                 self.tablebase = pickle.load(f)
             print(f"Loaded {len(self.tablebase)} positions")
         else:
@@ -181,7 +181,7 @@ class TablebaseGenerator:
     
     def save_tablebase(self):
         """Save tablebase to file."""
-        with open('krk_tablebase.pkl', 'wb') as f:
+        with open('krk_tablebase_fixed.pkl', 'wb') as f:
             pickle.dump(self.tablebase, f)
         print("Tablebase saved")
     
